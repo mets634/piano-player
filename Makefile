@@ -28,4 +28,4 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 
 $(TARGET): $(OBJS)
 	mkdir -p $(BINDIR)
-	$(CC) -mmcu=msp430g2553 -o $@ $< $(LDFLAGS)
+	$(CC) -mmcu=msp430g2553 -o $@ $^ $(LDFLAGS)
