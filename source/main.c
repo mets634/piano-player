@@ -2,6 +2,7 @@
 
 #include "bit.h"
 #include "timer.h"
+#include "piano_keys.h"
 
 
 int main(void) {
@@ -11,7 +12,7 @@ int main(void) {
 	SET_BIT(P2DIR, OUTPUT);
 	UNSET_BIT(P2OUT, OUTPUT);
 
-	run_timer(440);
+	run_timer(G);
 
 	// Stop CPU and enable interrupts.
 	__bis_SR_register(CPUOFF | GIE);
