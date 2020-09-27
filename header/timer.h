@@ -9,3 +9,5 @@
  * occur (due to the timer that is used).
 */
 void run_timer(uint16_t frequency);
+
+void stop_timer(void);

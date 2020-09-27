@@ -13,12 +13,16 @@ void run_timer(uint16_t frequency)
 {
     // Before doing anything related to
     // the timer, we first stop the timer.
-    TACCR0 = 0;  
+    stop_timer();
 
     // Select timer configuration.
     TACCTL0 = CCIE;  // CCR0 interrupt enabled
     TACTL = TASSEL_2 + MC_1 + ID_3;  // SMCLK/8, upmode
     CCR0 = TIMER_FREQUENCY_IN_HZ / frequency;
+}
+
+void stop_timer(void) {
+    CCR0 = 0;
 }
 
 #pragma vector = TIMER0_A0_VECTOR

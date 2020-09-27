@@ -1,16 +1,8 @@
 #include<msp430.h>
 
 #include "bit.h"
-#include "timer.h"
-#include "piano_keys.h"
+#include "player.h"
 
-
-void play(uint16_t key) {
-	uint32_t i = 0;
-
-	run_timer(key);
-	for (i = 0; i < 0xffff; ++i) {}
-}
 
 int main(void) {
 	WDTCTL = WDTPW | WDTHOLD;  // Disable watchdog.
@@ -19,20 +11,12 @@ int main(void) {
 	SET_BIT(P2DIR, OUTPUT);
 	UNSET_BIT(P2OUT, OUTPUT);
 
-	__bis_SR_register(GIE);
+	__bis_SR_register(GIE);  // Enable interrupts.
 
-	while (1) {
-		play(C);
-		play(D);
-		play(E);
-		play(F);
-		play(G);
-		play(A);
-		play(B);
-	}
+	play_song();
 
-	// Stop CPU and enable interrupts.
-	__bis_SR_register(CPUOFF | GIE);
+	// Stop CPU.
+	__bis_SR_register(CPUOFF);
 	
 	return 0;
 }
