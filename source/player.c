@@ -8,7 +8,7 @@ void play_tone(uint16_t key) {
 	uint32_t i = 0;
 
 	run_timer(key);
-	for (i = 0; i < 0xffff; ++i) {}
+	for (i = 0; i < 0x8fff; ++i) {}
 
     stop_timer();
 	for (i = 0; i < 0x0fff; ++i) {}

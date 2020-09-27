@@ -11,8 +11,6 @@
 
 void run_timer(uint16_t frequency)
 {
-    // Before doing anything related to
-    // the timer, we first stop the timer.
     stop_timer();
 
     // Select timer configuration.
