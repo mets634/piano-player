@@ -24,5 +24,5 @@ void run_timer(uint16_t frequency)
 #pragma vector = TIMER0_A0_VECTOR
 __interrupt void increment_timer(void)
 {
-    TOGGLE_BIT(P1OUT, LED);
+    TOGGLE_BIT(P2OUT, OUTPUT);
 }
